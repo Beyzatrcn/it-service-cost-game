@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus IT Service Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="glow glow-left"></div>
+    <div class="glow glow-right"></div>
+
+    <main class="app-shell">
+      <section id="start-screen" class="screen start-screen">
+        <div class="intro-card">
+          <p class="eyebrow">Campus IT Service Manager</p>
+          <h1>Steuere IT-Service-Kosten in einer komplexen Hochschullandschaft.</h1>
+          <p class="intro-copy">
+            Du verantwortest eine gewachsene Service-Landschaft mit
+            Doppelspurigkeiten, Parallelbetrieb und kritischen Kernsystemen.
+            In jeder Runde wählst du einen konkreten Service oder eine
+            Service-Gruppe aus, führst eine passende Massnahme aus und siehst
+            sofort, welche Werte sich an welchen Services verändern.
+          </p>
+
+          <div class="intro-grid">
+            <article class="intro-tile">
+              <h2>Fokus</h2>
+              <p>Gesamtkosten im Griff halten, ohne Stabilität und Qualität zu opfern.</p>
+            </article>
+            <article class="intro-tile">
+              <h2>Rundenlogik</h2>
+              <p>1. Service wählen 2. Massnahme bestätigen 3. Auswirkungen nachvollziehen.</p>
+            </article>
+            <article class="intro-tile">
+              <h2>Wichtig</h2>
+              <p>Nicht abstrakt sparen, sondern Services fachlich sinnvoll standardisieren oder migrieren.</p>
+            </article>
+          </div>
+
+          <button id="start-button" class="primary-button" type="button">
+            Spiel starten
+          </button>
+        </div>
+      </section>
+
+      <section id="spiel-screen" class="screen spiel-screen hidden">
+        <header class="hero-card">
+          <div>
+            <p class="eyebrow">Management-Spiel</p>
+            <h1>Steuere IT-Services, senke Kosten und halte den Betrieb stabil.</h1>
+            <p class="hero-copy">
+              Jede Runde funktioniert gleich: betroffene Services anschauen,
+              eine Massnahme wählen und danach die Wirkung direkt sehen.
+            </p>
+          </div>
+          <button id="restart-button" class="secondary-button" type="button">
+            Neu starten
+          </button>
+        </header>
+
+        <section class="kennzahlen-grid">
+          <article class="kennzahl-karte kosten-karte">
+            <p class="card-label">Gesamtkosten</p>
+            <div id="gesamt-kosten" class="kosten-wert">CHF 0</div>
+            <p class="card-note">Budget: <span id="budget-wert">CHF 0</span></p>
+          </article>
+
+          <article class="kennzahl-karte">
+            <p class="card-label">Runde</p>
+            <div id="runde-wert" class="stat-wert">1 / 10</div>
+            <p class="card-note">Entscheidung und Folge</p>
+          </article>
+
+          <article class="kennzahl-karte">
+            <p class="card-label">Stabilität</p>
+            <div id="stabilitaet-kopfwert" class="stat-wert">0</div>
+            <p class="card-note">Betriebsfähigkeit aktuell</p>
+          </article>
+
+          <article class="kennzahl-karte">
+            <p class="card-label">Nutzerzufriedenheit</p>
+            <div id="zufriedenheit-kopfwert" class="stat-wert">0</div>
+            <p class="card-note">Akzeptanz der Nutzenden</p>
+          </article>
+
+          <article class="kennzahl-karte">
+            <p class="card-label">Risiko</p>
+            <div id="risiko-kopfwert" class="stat-wert">0</div>
+            <p class="card-note">Hohe Werte lösen Zusatzfolgen aus</p>
+          </article>
+
+          <article class="kennzahl-karte">
+            <p class="card-label">Fokusgruppe</p>
+            <div id="fokus-wert" class="stat-wert">-</div>
+            <p class="card-note">Aktuelle Service-Gruppe</p>
+          </article>
+        </section>
+
+        <section class="meter-grid">
+          <article class="meter-karte">
+            <div class="meter-kopf">
+              <span>Stabilität</span>
+              <span id="stabilitaet-wert">0</span>
+            </div>
+            <div class="meter-spur">
+              <div id="stabilitaet-balken" class="meter-fuellung meter-stabilitaet"></div>
+            </div>
+          </article>
+
+          <article class="meter-karte">
+            <div class="meter-kopf">
+              <span>Nutzerzufriedenheit</span>
+              <span id="zufriedenheit-wert">0</span>
+            </div>
+            <div class="meter-spur">
+              <div id="zufriedenheit-balken" class="meter-fuellung meter-zufriedenheit"></div>
+            </div>
+          </article>
+
+          <article class="meter-karte danger">
+            <div class="meter-kopf">
+              <span>Risiko</span>
+              <span id="risiko-wert">0</span>
+            </div>
+            <div class="meter-spur">
+              <div id="risiko-balken" class="meter-fuellung meter-risiko"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="hilfe-leiste">
+          <div class="hilfe-schritt">
+            <strong>1</strong>
+            <span>Fokusgruppe oben ansehen</span>
+          </div>
+          <div class="hilfe-schritt">
+            <strong>2</strong>
+            <span>Service oder Gruppe wählen</span>
+          </div>
+          <div class="hilfe-schritt">
+            <strong>3</strong>
+            <span>Massnahme bestätigen</span>
+          </div>
+          <div class="hilfe-schritt">
+            <strong>4</strong>
+            <span>Auswirkung vergleichen</span>
+          </div>
+        </section>
+
+        <section class="hauptbereich">
+          <section class="landschaft-panel">
+            <div class="bereich-kopf">
+              <div>
+                <p class="eyebrow">Service-Landschaft</p>
+                <h2>Aktuelle Fokusgruppe</h2>
+              </div>
+              <p class="section-copy">
+                Nur der aktuell wichtige Bereich ist gross offen. Alles andere bleibt klein in der Übersicht.
+              </p>
+            </div>
+            <div id="services-grid" class="services-grid"></div>
+          </section>
+
+          <section class="steuerung-panel">
+            <article class="steuerkarte">
+              <div class="bereich-kopf">
+                <div>
+                  <p class="eyebrow">Runde</p>
+                  <h2 id="szenario-titel">Szenario wird geladen</h2>
+                </div>
+                <div id="szenario-runde-badge" class="meta-badge">Runde 1</div>
+              </div>
+
+              <p id="szenario-beschreibung" class="ereignis-copy"></p>
+
+              <div class="steuer-meta">
+                <span id="gruppen-badge" class="meta-badge">Gruppe</span>
+                <span id="service-hinweis-badge" class="meta-badge warnung">Betroffene Services</span>
+              </div>
+
+              <div id="betroffene-services" class="tag-row"></div>
+
+              <div class="workflow-grid">
+                <section class="workflow-karte">
+                  <p class="card-label">1. Auswahl</p>
+                  <div id="service-auswahl" class="auswahl-grid"></div>
+                </section>
+
+                <section class="workflow-karte">
+                  <p class="card-label">2. Massnahme</p>
+                  <div id="massnahmen-auswahl" class="massnahmen-grid"></div>
+                  <button id="bestaetigen-button" class="primary-button full-width" type="button" disabled>
+                    Entscheidung bestätigen
+                  </button>
+                  <button id="weiter-button" class="secondary-button full-width hidden" type="button">
+                    N&auml;chste Runde
+                  </button>
+                </section>
+              </div>
+            </article>
+
+            <article class="auswirkung-karte">
+              <div class="bereich-kopf">
+                <div>
+                  <p class="eyebrow">Auswirkung</p>
+                  <h2>Was hat sich geändert?</h2>
+                </div>
+                <div id="folge-badge" class="meta-badge">Warte auf Entscheidung</div>
+              </div>
+
+              <p id="feedback-text" class="feedback-text">
+                Wähle zuerst einen Service oder eine Service-Gruppe aus. Danach
+                kannst du eine konkrete Massnahme bestätigen.
+              </p>
+
+              <div id="veraenderungen-liste" class="veraenderungen-liste"></div>
+            </article>
+
+            <aside class="seitenleiste">
+              <article class="info-karte">
+                <p class="card-label">Laufende Programme</p>
+                <div id="massnahmen-liste" class="massnahmen-liste"></div>
+              </article>
+
+              <article class="info-karte">
+                <p class="card-label">Rundenprotokoll</p>
+                <div id="protokoll-liste" class="protokoll-liste"></div>
+              </article>
+            </aside>
+          </section>
+        </section>
+      </section>
+
+      <section id="ende-screen" class="screen end-screen hidden">
+        <div class="ende-karte">
+          <p class="eyebrow">Auswertung</p>
+          <h2 id="ende-titel">Spielende</h2>
+          <p id="ende-text" class="end-message"></p>
+          <div id="ende-stats" class="ende-stats"></div>
+          <button id="play-again-button" class="primary-button" type="button">
+            Noch einmal spielen
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,948 @@
+:root {
+  --bg-top: #08111d;
+  --bg-bottom: #02060d;
+  --panel: rgba(12, 20, 34, 0.95);
+  --panel-soft: rgba(255, 255, 255, 0.04);
+  --line: rgba(33, 92, 175, 0.22);
+  --line-strong: rgba(77, 125, 191, 0.46);
+  --text: #f4f7ff;
+  --muted: #96aec8;
+  --cyan: #4d7dbf;
+  --teal: #215caf;
+  --green: #9df06b;
+  --gold: #d3deef;
+  --red: #ff7878;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --eth-blue: #215caf;
+  --eth-blue-dark: #08407e;
+  --eth-blue-soft: #4d7dbf;
+  --eth-blue-faint: #a6bedf;
+  --eth-blue-pale: #d3deef;
+  --eth-grey: #6f6f6f;
+  --eth-grey-dark: #575757;
+  --eth-grey-soft: #c5c5c5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(33, 92, 175, 0.22), transparent 26%),
+    radial-gradient(circle at top right, rgba(77, 125, 191, 0.12), transparent 24%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+}
+
+button {
+  font: inherit;
+}
+
+.glow {
+  position: fixed;
+  width: 24rem;
+  height: 24rem;
+  border-radius: 999px;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.glow-left {
+  top: -8rem;
+  left: -6rem;
+  background: rgba(33, 92, 175, 0.16);
+}
+
+.glow-right {
+  right: -6rem;
+  bottom: -8rem;
+  background: rgba(111, 111, 111, 0.14);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.screen {
+  width: min(1440px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  padding: 1rem 0 1.75rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.eyebrow,
+.card-label {
+  margin: 0 0 0.55rem;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+}
+
+.start-screen,
+.end-screen {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 2rem 0;
+}
+
+.intro-card,
+.hero-card,
+.kennzahl-karte,
+.meter-karte,
+.landschaft-panel,
+.steuerkarte,
+.auswirkung-karte,
+.info-karte,
+.ende-karte,
+.service-gruppe,
+.dienst-karte,
+.workflow-karte,
+.wahl-chip,
+.massnahme-button,
+.veraenderung-card {
+  background: linear-gradient(180deg, rgba(15, 24, 39, 0.96), rgba(7, 13, 23, 0.96));
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.intro-card,
+.ende-karte {
+  width: min(980px, 100%);
+  padding: 1.8rem;
+  border-radius: 30px;
+}
+
+.intro-card h1,
+.hero-card h1,
+.bereich-kopf h2,
+.steuerkarte h2,
+.auswirkung-karte h2,
+.intro-tile h2,
+.ende-karte h2 {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  line-height: 0.95;
+}
+
+.intro-card h1 {
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  max-width: 13ch;
+}
+
+.intro-copy,
+.intro-tile p,
+.hero-copy,
+.card-note,
+.section-copy,
+.feedback-text,
+.protokoll-main,
+.protokoll-impact,
+.massnahme-text,
+.end-message,
+.dienst-beschreibung,
+.delta-list {
+  color: var(--muted);
+  line-height: 1.56;
+}
+
+.intro-copy {
+  margin: 1rem 0 0;
+  max-width: 58rem;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.intro-tile {
+  padding: 1rem;
+  border-radius: 20px;
+  background: var(--panel-soft);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.primary-button,
+.secondary-button,
+.massnahme-button,
+.wahl-chip {
+  border-radius: 16px;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 0.95rem 1.25rem;
+  font-weight: 700;
+}
+
+.primary-button {
+  border: 1px solid rgba(77, 125, 191, 0.5);
+  background: linear-gradient(180deg, rgba(33, 92, 175, 0.92), rgba(8, 64, 126, 0.92));
+}
+
+.secondary-button {
+  border: 1px solid rgba(77, 125, 191, 0.28);
+  background: linear-gradient(180deg, rgba(20, 38, 63, 1), rgba(10, 18, 34, 1));
+}
+
+.primary-button:hover,
+.secondary-button:hover,
+.massnahme-button:hover,
+.wahl-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(166, 190, 223, 0.9);
+}
+
+.primary-button:disabled,
+.massnahme-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.hero-card {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.2rem 1.35rem;
+  border-radius: 28px;
+}
+
+.hero-card h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  max-width: 15ch;
+}
+
+.hero-copy {
+  margin-top: 0.75rem;
+  max-width: 48rem;
+}
+
+.spiel-screen {
+  padding: 1rem;
+  border-radius: 34px;
+  border: 1px solid rgba(77, 125, 191, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(77, 125, 191, 0.16), transparent 26%),
+    linear-gradient(180deg, rgba(10, 22, 41, 0.92), rgba(5, 12, 22, 0.94));
+  box-shadow: 0 0 0 1px rgba(33, 92, 175, 0.08), var(--shadow);
+}
+
+.spiel-screen .steuerung-panel {
+  padding: 0.95rem;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top right, rgba(166, 190, 223, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(92, 98, 108, 0.62), rgba(37, 41, 49, 0.72));
+  border: 1px solid rgba(197, 197, 197, 0.16);
+}
+
+.spiel-screen .hero-card,
+.spiel-screen .landschaft-panel,
+.spiel-screen .steuerkarte,
+.spiel-screen .auswirkung-karte,
+.spiel-screen .service-gruppe,
+.spiel-screen .dienst-karte,
+.spiel-screen .workflow-karte,
+.spiel-screen .wahl-chip,
+.spiel-screen .massnahme-button,
+.spiel-screen .veraenderung-card {
+  background:
+    radial-gradient(circle at top right, rgba(77, 125, 191, 0.08), transparent 28%),
+    linear-gradient(180deg, rgba(17, 33, 58, 0.98), rgba(9, 19, 35, 0.98));
+  border-color: rgba(77, 125, 191, 0.24);
+}
+
+.spiel-screen .steuerkarte,
+.spiel-screen .auswirkung-karte,
+.spiel-screen .workflow-karte,
+.spiel-screen .wahl-chip,
+.spiel-screen .massnahme-button,
+.spiel-screen .veraenderung-card {
+  background:
+    radial-gradient(circle at top right, rgba(166, 190, 223, 0.08), transparent 26%),
+    linear-gradient(180deg, rgba(68, 74, 84, 0.95), rgba(32, 36, 43, 0.97));
+  border-color: rgba(197, 197, 197, 0.18);
+}
+
+.spiel-screen .hilfe-schritt,
+.spiel-screen .dienst-kompakt,
+.spiel-screen .gruppe-kompakt,
+.spiel-screen .vergleich-box,
+.spiel-screen .mini-wert {
+  background: rgba(33, 92, 175, 0.08);
+  border-color: rgba(166, 190, 223, 0.12);
+}
+
+.kennzahlen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.9rem;
+}
+
+.meter-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.kennzahl-karte,
+.meter-karte,
+.info-karte,
+.landschaft-panel,
+.steuerkarte,
+.auswirkung-karte {
+  border-radius: 24px;
+}
+
+.kennzahl-karte,
+.meter-karte,
+.info-karte {
+  padding: 0.9rem 1rem;
+}
+
+.kosten-karte {
+  background:
+    radial-gradient(circle at top right, rgba(166, 190, 223, 0.2), transparent 32%),
+    linear-gradient(180deg, rgba(18, 31, 52, 0.98), rgba(9, 16, 28, 0.98));
+}
+
+.kosten-wert,
+.stat-wert,
+.dienst-kosten {
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.kosten-wert {
+  font-size: clamp(2.3rem, 4vw, 4.1rem);
+  color: var(--eth-blue-pale);
+}
+
+.stat-wert {
+  font-size: clamp(1.55rem, 2.6vw, 2.2rem);
+}
+
+.kennzahl-karte .card-label {
+  line-height: 1.2;
+}
+
+.kennzahl-karte .card-note {
+  margin-top: 0.35rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.meter-kopf,
+.bereich-kopf,
+.dienst-kopf,
+.vergleich-kopf {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: start;
+}
+
+.meter-kopf span:first-child {
+  color: var(--muted);
+}
+
+.meter-kopf span:last-child {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.meter-spur {
+  height: 14px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.meter-fuellung {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  transition: width 240ms ease;
+}
+
+.meter-stabilitaet {
+  background: linear-gradient(90deg, var(--teal), var(--cyan));
+}
+
+.meter-zufriedenheit {
+  background: linear-gradient(90deg, var(--green), var(--teal));
+}
+
+.meter-risiko {
+  background: linear-gradient(90deg, #ffb35d, var(--red));
+}
+
+.hilfe-leiste {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.hilfe-schritt {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 0.95rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hilfe-schritt strong {
+  display: inline-grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 999px;
+  background: rgba(33, 92, 175, 0.18);
+  color: var(--eth-blue-pale);
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+}
+
+.hilfe-schritt span {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.3;
+}
+
+.hauptbereich {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  align-items: start;
+}
+
+.landschaft-panel,
+.steuerkarte,
+.auswirkung-karte {
+  padding: 1rem 1.05rem;
+}
+
+.bereich-kopf {
+  margin-bottom: 0.9rem;
+}
+
+.bereich-kopf h2 {
+  font-size: clamp(1.85rem, 3vw, 2.55rem);
+}
+
+.section-copy {
+  margin: 0;
+  text-align: right;
+  max-width: 26rem;
+}
+
+.services-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.service-gruppe {
+  padding: 0.85rem;
+  border-radius: 22px;
+}
+
+.service-gruppe.fokus-gruppe {
+  border-color: var(--line-strong);
+  box-shadow: 0 0 0 1px rgba(77, 125, 191, 0.22), var(--shadow);
+}
+
+.service-gruppe h3 {
+  margin: 0;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.45rem;
+}
+
+.gruppe-copy {
+  margin: 0.2rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.dienst-liste {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.dienst-kompakt {
+  padding: 0.75rem 0.85rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dienst-kompakt.betont {
+  border-color: rgba(77, 125, 191, 0.38);
+}
+
+.dienst-kompakt-kopf,
+.dienst-kompakt-werte {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.dienst-kompakt-kopf strong {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.1rem;
+}
+
+.dienst-kompakt-werte {
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  flex-wrap: wrap;
+}
+
+.service-uebersicht {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.gruppen-kompakt-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.gruppe-kompakt {
+  padding: 0.75rem 0.85rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.dienst-karte {
+  padding: 0.9rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(17, 27, 44, 0.9), rgba(9, 15, 27, 0.92));
+}
+
+.dienst-karte.aktiv-fokus {
+  border-color: rgba(166, 190, 223, 0.44);
+}
+
+.dienst-karte.betont {
+  box-shadow: 0 0 0 1px rgba(77, 125, 191, 0.34), var(--shadow);
+  background:
+    radial-gradient(circle at top right, rgba(166, 190, 223, 0.12), transparent 30%),
+    linear-gradient(180deg, rgba(20, 37, 64, 0.96), rgba(9, 19, 35, 0.98));
+}
+
+.dienst-name {
+  margin: 0.2rem 0 0;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.dienst-tag,
+.dienst-status,
+.meta-badge,
+.service-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.73rem;
+}
+
+.dienst-tag {
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dienst-status,
+.meta-badge,
+.service-badge {
+  border: 1px solid rgba(77, 125, 191, 0.28);
+  color: var(--eth-blue-pale);
+}
+
+.meta-badge.warnung {
+  border-color: rgba(166, 190, 223, 0.28);
+  color: var(--eth-blue-pale);
+}
+
+.dienst-kosten {
+  margin: 0.7rem 0 0.2rem;
+  font-size: 1.85rem;
+}
+
+.dienst-beschreibung {
+  margin: 0;
+  font-size: 0.84rem;
+}
+
+.dienst-werte {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.45rem;
+  margin-top: 0.75rem;
+}
+
+.mini-wert {
+  padding: 0.55rem 0.6rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.mini-wert span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.mini-wert strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.25rem;
+}
+
+.steuerung-panel {
+  display: grid;
+  gap: 1rem;
+  padding: 0.9rem;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top right, rgba(111, 111, 111, 0.14), transparent 24%),
+    linear-gradient(180deg, rgba(56, 61, 69, 0.72), rgba(23, 27, 33, 0.68));
+  border: 1px solid rgba(197, 197, 197, 0.14);
+}
+
+.steuerkarte,
+.auswirkung-karte {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, rgba(197, 197, 197, 0.08), transparent 24%),
+    linear-gradient(180deg, rgba(60, 66, 75, 0.97), rgba(28, 33, 40, 0.98));
+  border-color: rgba(197, 197, 197, 0.18);
+}
+
+.steuerkarte::before,
+.auswirkung-karte::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(77, 125, 191, 0.14), transparent 24%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.018), transparent 40%);
+  pointer-events: none;
+}
+
+.steuerkarte h2,
+.auswirkung-karte h2 {
+  position: relative;
+  font-size: clamp(1.28rem, 2.1vw, 2rem);
+  line-height: 0.98;
+  max-width: 17ch;
+}
+
+.ereignis-copy,
+.feedback-text {
+  position: relative;
+  margin: 0.85rem 0 0;
+}
+
+#szenario-beschreibung {
+  max-width: 40rem;
+  line-height: 1.45;
+}
+
+.steuer-meta,
+.tag-row {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.9rem;
+}
+
+.workflow-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+.workflow-karte {
+  padding: 0.9rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(87, 87, 87, 0.24), rgba(44, 48, 54, 0.24));
+  border: 1px solid rgba(197, 197, 197, 0.1);
+  box-shadow: none;
+}
+
+.auswahl-grid,
+.massnahmen-grid {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.wahl-chip,
+.massnahme-button {
+  width: 100%;
+  text-align: left;
+  padding: 0.72rem 0.8rem;
+  border: 1px solid rgba(77, 125, 191, 0.22);
+  background: rgba(33, 92, 175, 0.08);
+  border-radius: 14px;
+}
+
+.wahl-chip.aktiv,
+.massnahme-button.aktiv {
+  border-color: rgba(166, 190, 223, 0.5);
+  box-shadow: 0 0 0 1px rgba(77, 125, 191, 0.24);
+}
+
+.wahl-chip strong,
+.massnahme-button strong {
+  display: block;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1rem;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.wahl-chip span,
+.massnahme-button span {
+  display: block;
+  margin-top: 0.22rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.28;
+  overflow-wrap: anywhere;
+}
+
+#bestaetigen-button,
+#weiter-button {
+  margin-top: 0.65rem;
+  padding: 0.8rem 0.95rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.veraenderungen-liste,
+.massnahmen-liste,
+.protokoll-liste {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.95rem;
+}
+
+.veraenderung-card {
+  padding: 0.9rem;
+  border-radius: 20px;
+}
+
+.veraenderung-card.folge {
+  border-color: rgba(166, 190, 223, 0.36);
+}
+
+.vergleich-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+}
+
+.vergleich-box {
+  padding: 0.75rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vergleich-box h4 {
+  margin: 0 0 0.55rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.2rem;
+}
+
+.delta-list {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.86rem;
+}
+
+.massnahme-item,
+.protokoll-item {
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(150, 174, 200, 0.12);
+}
+
+.massnahme-item:first-child,
+.protokoll-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.massnahme-titel,
+.protokoll-runde {
+  color: var(--cyan);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.massnahme-name,
+.protokoll-main {
+  margin-top: 0.25rem;
+  color: var(--text);
+}
+
+.protokoll-impact {
+  margin-top: 0.28rem;
+  font-size: 0.82rem;
+}
+
+.ende-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin: 1.2rem 0 1.4rem;
+}
+
+.ende-stat {
+  padding: 0.9rem;
+  border-radius: 18px;
+  background: var(--panel-soft);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ende-stat strong {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.45rem;
+}
+
+@media (max-width: 1440px), (max-height: 920px) {
+  .screen {
+    width: min(1280px, calc(100% - 1rem));
+    padding: 0.85rem 0 1.1rem;
+  }
+
+  .kennzahlen-grid,
+  .meter-grid,
+  .hilfe-leiste,
+  .hauptbereich,
+  .workflow-grid,
+  .intro-grid {
+    gap: 0.75rem;
+  }
+
+  .hero-card,
+  .kennzahl-karte,
+  .meter-karte,
+  .landschaft-panel,
+  .steuerkarte,
+  .auswirkung-karte,
+  .info-karte,
+  .service-gruppe,
+  .dienst-karte,
+  .workflow-karte,
+  .veraenderung-card {
+    border-radius: 22px;
+  }
+
+  .dienst-kosten {
+    font-size: 1.65rem;
+  }
+
+  .mini-wert strong {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 1180px) {
+  .kennzahlen-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hilfe-leiste {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hauptbereich,
+  .workflow-grid,
+  .ende-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .steuerung-panel {
+    padding: 0.75rem;
+  }
+
+  .section-copy,
+  .bereich-kopf {
+    text-align: left;
+    max-width: none;
+  }
+}
+
+@media (max-width: 820px) {
+  .kennzahlen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-grid,
+  .hilfe-leiste,
+  .meter-grid,
+  .vergleich-grid,
+  .dienst-werte {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card,
+  .bereich-kopf,
+  .meter-kopf,
+  .dienst-kopf,
+  .vergleich-kopf {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
