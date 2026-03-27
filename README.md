@@ -2,7 +2,25 @@
 
 Ein browserbasiertes Strategiespiel über IT-Service-Kosten in einer Hochschulumgebung.
 
-Die spielende Person übernimmt die Rolle im IT-Controlling bzw. IT-Service-Management und steuert eine gewachsene IT-Service-Landschaft wirtschaftlich. Ziel ist es, Kosten zu kontrollieren, Doppelspurigkeiten zu reduzieren und gleichzeitig Stabilität, Nutzerzufriedenheit und Risiko im Gleichgewicht zu halten.
+In diesem Spiel übernimmt die spielende Person eine Rolle im IT-Controlling bzw. IT-Service-Management und steuert eine gewachsene IT-Service-Landschaft wirtschaftlich. Ziel ist es, Kosten zu kontrollieren, Doppelspurigkeiten zu reduzieren und gleichzeitig Stabilität, Nutzerzufriedenheit und Risiko im Gleichgewicht zu halten.
+
+## Screenshots
+
+### Start und Spielübersicht
+
+![Start und Spielübersicht](image/README/1774649537337.png)
+
+### Service-Landschaft und Kennzahlen
+
+![Service-Landschaft und Kennzahlen](image/README/1774649557768.png)
+
+### Entscheidungen und Auswirkungen
+
+![Entscheidungen und Auswirkungen](image/README/1774649573040.png)
+
+### Auswertung am Spielende
+
+![Auswertung am Spielende](image/README/1774649587577.png)
 
 ## Projektinhalt
 
@@ -23,12 +41,19 @@ Dateien:
 
 Start:
 
-1. `index.html` im Browser öffnen
+1. `index.html` direkt im Browser öffnen
 
 oder lokal mit einem kleinen Server:
 
-1. Im Projektordner einen lokalen Server starten
-2. Dann die Seite im Browser öffnen
+```bash
+python -m http.server 8512
+```
+
+Danach im Browser öffnen:
+
+```text
+http://127.0.0.1:8512
+```
 
 ## Python-Version
 
