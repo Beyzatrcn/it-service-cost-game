@@ -1,14 +1,14 @@
-# IT Service Cost Game
+# IT Service Cost Simulation
 
-Ein browserbasiertes Strategiespiel über IT-Service-Kosten in einer Hochschulumgebung.
+Eine browserbasierte Simulation über IT-Service-Kosten in einer Hochschulumgebung.
 
-In diesem Spiel übernimmt die spielende Person eine Rolle im IT-Controlling bzw. IT-Service-Management und steuert eine gewachsene IT-Service-Landschaft wirtschaftlich. Ziel ist es, Kosten zu kontrollieren, Doppelspurigkeiten zu reduzieren und gleichzeitig Stabilität, Nutzerzufriedenheit und Risiko im Gleichgewicht zu halten.
+In dieser Simulation übernimmt die spielende Person eine Rolle im IT-Controlling bzw. IT-Service-Management und steuert eine gewachsene IT-Service-Landschaft wirtschaftlich. Ziel ist es, Kosten zu kontrollieren, Doppelspurigkeiten zu reduzieren und gleichzeitig Stabilität, Nutzerzufriedenheit und Risiko im Gleichgewicht zu halten.
 
 ## Screenshots
 
-### Start und Spielübersicht
+### Start und Simulationsübersicht
 
-![Start und Spielübersicht](image/README/1774649537337.png)
+![Start und Simulationsübersicht](image/README/1774649537337.png)
 
 ### Service-Landschaft und Kennzahlen
 
@@ -18,9 +18,9 @@ In diesem Spiel übernimmt die spielende Person eine Rolle im IT-Controlling bzw
 
 ![Entscheidungen und Auswirkungen](image/README/1774649573040.png)
 
-### Auswertung am Spielende
+### Auswertung am Simulationsende
 
-![Auswertung am Spielende](image/README/1774649587577.png)
+![Auswertung am Simulationsende](image/README/1774649587577.png)
 
 ## Projektinhalt
 
@@ -31,7 +31,7 @@ Das Repository enthält zwei Versionen:
 
 ## Browser-Version
 
-Die Browser-Version ist die aktuelle Hauptversion des Spiels.
+Die Browser-Version ist die aktuelle Hauptversion der Simulation.
 
 Dateien:
 
@@ -71,7 +71,7 @@ Start:
 streamlit run app.py
 ```
 
-## Spielidee
+## Simulationsidee
 
 - Mehrere IT-Services mit ähnlichem Zweck müssen sinnvoll gesteuert werden
 - Entscheidungen wirken direkt auf konkrete Services
